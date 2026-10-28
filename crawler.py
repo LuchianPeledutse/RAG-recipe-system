@@ -37,7 +37,8 @@ def get_recipe(link):
         paragraphs = division.find_all("p")
         if paragraphs:
             for paragraph in paragraphs:
-                recipe_text = recipe_text + paragraph.get_text()
+                if paragraph.get_text()[:4] != "Save":
+                    recipe_text = recipe_text + paragraph.get_text()
     return recipe_name, recipe_text
 
 
@@ -48,7 +49,7 @@ recipe_dataframe = pd.DataFrame(columns=["recipe_name", "recipe_text"])
 for recipe_link in tqdm(recipe_links):
     single_recipe = get_recipe(recipe_link)
     single_recipe_frame = pd.DataFrame({"recipe_name":single_recipe[0],
-                                        "recipe_text":single_recipe[1]}, index = [0, 1])
+                                        "recipe_text":single_recipe[1]}, index = [0])
     recipe_dataframe = pd.concat([recipe_dataframe, single_recipe_frame], ignore_index = True)
 # Save dataframe as csv file
 recipe_dataframe.to_csv("Recipes.csv", index = False)
