@@ -8,3 +8,5 @@ python crawler.py
 ```
 This should create a csv file named 'Recipes.csv' that stores the recipes along with their names.
 
+## System components
+The first system component is model called GigaC`hat. To gain access to model visit this [website](https://developers.sber.ru/studio/workspaces/019c8721-a440-702c-bda6-a56bed598931/gigachat-api/projects/019c8721-d6a1-70f0-b538-16aeb1192ffc/parameters) and retrieve access token. This token is needed to run LLMModel class from script systemComponents.
