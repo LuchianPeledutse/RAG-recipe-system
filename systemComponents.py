@@ -2,6 +2,9 @@
 import os
 import json
 from typing import List
+import warnings
+
+warnings.filterwarnings("ignore")
 
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
